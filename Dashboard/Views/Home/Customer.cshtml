@@ -1,0 +1,43 @@
+﻿<div class="row" ng-controller="customerController">
+    <div class="col-md-3">
+        <div class="panel panel-warning text-center">
+            <div class="panel-body">
+                <h1 class="text-success">{{CustomerInformations.NewlyRegistered}}</h1>
+            </div>
+            <div class="panel-footer panel-info">Newly Registered Customers</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="panel panel-danger text-center">
+            <div class="panel-body">
+                <h1 class="text-info">{{CustomerInformations.SubscribedCustomers}} $</h1>
+            </div>
+            <div class="panel-footer panel-info">Millons Donations</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="panel panel-success text-center">
+            <div class="panel-body">
+                <h1 class="text-warning">{{CustomerInformations.TopRatedCustomers}}</h1>
+            </div>
+            <div class="panel-footer panel-info">Top Rated Customers</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="panel panel-info text-center">
+            <div class="panel-body">
+                <h1 class="text-danger">{{CustomerInformations.PendingToApprove}}</h1>
+            </div>
+            <div class="panel-footer panel-info">Pending Requests</div>
+        </div>
+    </div>
+</div>
+<div class="row" ng-controller="chartController">
+    <div class="col-md-12">
+        <div class="panel panel-default panel-info text-center">
+            <div class="panel-body">
+                <highchart id="chart2" config="chartConfig"></highchart>
+            </div>
+        </div>
+    </div>
+</div>

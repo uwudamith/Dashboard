@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/jquery-ui")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body id="body" ng-app="dashboardApp" style="display: none;">
+    <!-- Header -->
+    <div id="top-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="navbar-header" ng-controller="dashboardController">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-toggle"></span>
+            </button>
+            <a class="navbar-brand" href="#">{{leftMenuModel.BrandTitle}}</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav pull-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#">
+                        <strong>Admin</strong> <span class="caret"></span>
+                    </a>
+                    <ul id="g-account-menu" class="dropdown-menu" role="menu">
+                        <li><a href="#">My Profile</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Log out</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- /Header -->
+    <!-- Main -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- span-2 -->
+            <div class="col-md-2">
+                <!-- Left -->
+                <strong>Tools</strong>
+                <hr>
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="nav-header"></li>
+                    <li><a href="@Url.Action("Index","Home")" title="Home page">Home</a></li>
+                    <li><a href="@Url.Action("Customer","Home")">Customers</a></li>
+                    <li><a href="@Url.Action("ServerPerformance","Home")">Server Performance</a></li>
+                    <li><a href="@Url.Action("Content","Home")">Examples</a></li>
+                </ul>
+            </div>
+            <!-- /span-2 -->
+            <div class="col-md-10">
+                <!-- Right -->
+                <a href="#"><strong><span class="glyphicon glyphicon-dashboard"></span> Admin Dashboard</strong></a>
+                @*<a title="Add Widget" data-toggle="modal" href="#" class="btn btn-primary pull-right">
+                    <span class="glyphicon glyphicon-plus-sign"></span> Add Widget
+                </a>*@
+                <hr>
+                @RenderBody()
+                <!--/row-->
+            </div>
+            <!--/col-span-9-->
+        </div>
+    </div>
+    <!-- /Main -->
+    <div class="container-fluid">
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Responsive Dashboard</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jquery-ui-js")
+    @Scripts.Render("~/bundles/hichart-core")
+    @Scripts.Render("~/bundles/angulr-js")
+    @Scripts.Render("~/bundles/angular-highchart")
+    @Scripts.Render("~/bundles/angular-bootstarp-ui")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/signalr")
+    <script src="~/signalr/hubs" type="text/javascript"></script>
+    @RenderSection("scripts", required: false)
+
+    <script>
+        // Sets active link in Bootstrap menu
+        // Add this code in a central place used\shared by all pages
+        // like your _Layout.cshtml in ASP.NET MVC for example
+        $('a[href="' + this.location.pathname + '"]').parents('li,ul').addClass('active');
+        $("#body").show();
+    </script>
+
+</body>
+</html>
